@@ -4,6 +4,7 @@ import { Goal } from '../goal';
 import { GoalService } from '../goal-service/goal.service';
 import { AlertService } from '../alert-service/alert.service';
 import { Quote } from '../quote-class/quote';
+import { QuoteRequestService } from '../quote-http/quote-request.service';
 
 @Component({
   selector: 'app-goal',
@@ -15,6 +16,7 @@ export class GoalComponent implements OnInit {
   goals:Goal[];
   alertService: AlertService;
   quote:Quote;
+  quoteService: any;
 
 
   addNewGoal(goal){
@@ -48,6 +50,9 @@ export class GoalComponent implements OnInit {
       author:string;
       quote:string;
   }
+  this.quoteService.quoteRequest();
+  this.quote = this.quoteService.quote;
+  
   this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{
       // Succesful API request
       this.quote = new Quote(data.author, data.quote)
