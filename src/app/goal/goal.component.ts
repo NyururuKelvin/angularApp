@@ -16,8 +16,6 @@ export class GoalComponent implements OnInit {
   goals:Goal[];
   alertService: AlertService;
   quote:Quote;
-  quoteService: any;
-
 
   addNewGoal(goal){
     let goalLength = this.goals.length;
@@ -40,7 +38,7 @@ export class GoalComponent implements OnInit {
     }
   }
 
-  constructor(goalService:GoalService, alertService:AlertService, private http:HttpClient) {
+  constructor(goalService:GoalService, alertService:AlertService,private quoteService:QuoteRequestService,private http:HttpClient) {
     this.goals = goalService.getGoals()
     this.alertService = alertService;
   }
