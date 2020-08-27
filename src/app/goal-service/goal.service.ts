@@ -18,9 +18,9 @@ export class GoalService {
     return this.goals
   }
   getGoal(id){
-    for (let goal of Goals){
+    for (let goal of this.goals){
       if (goal.id == id){
-        return this.goal;
+        return this.goals;
       }
     }
   }
