@@ -20,7 +20,7 @@ export class GoalService {
   getGoal(id){
     for (let goal of this.goals){
       if (goal.id == id){
-        return this.goals;
+        return goal;
       }
     }
   }
